@@ -31,6 +31,7 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr class="text-center">
+                    <th>P. Id</th>
                     <th>Name</th>
                     <th>Image</th>
                     <th>Price</th>
@@ -41,63 +42,69 @@
             </thead>
             <tbody class="text-center">
                 <tr>
+                    <td>1</td>
                     <td>lorem pinchi atom</td>
                     <td><img src="images/1.jpg" alt="dress" width="100px" height="100px"></td>
                     <td>899</td>
                     <td>Kameez</td>
                     <td>70%</td>
                     <td>
-                        <a href="#" class="btn btn-info" role="button">Details</a>
+                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
                 </tr>
                 <tr>
+                    <td>2</td>
                     <td>lorem pinchi atom</td>
                     <td><img src="images/2.jpg" alt="dress" width="100px" height="100px"></td>
                     <td>799</td>
                     <td>Saari</td>
                     <td>Sold Out</td>
                     <td>
-                        <a href="#" class="btn btn-info" role="button">Details</a>
+                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
                 </tr>
                 <tr>
+                    <td>3</td>
                     <td>lorem pinchi atom</td>
                     <td><img src="images/3.jpg" alt="dress" width="100px" height="100px"></td>
                     <td>599</td>
                     <td>Saari</td>
                     <td>50%</td>
                     <td>
-                        <a href="#" class="btn btn-info" role="button">Details</a>
+                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
                 </tr>
                 <tr>
+                    <td>4</td>
                     <td>lorem pinchi atom</td>
                     <td><img src="images/3.jpg" alt="dress" width="100px" height="100px"></td>
                     <td>999</td>
                     <td>Kameez</td>
                     <td>70%</td>
                     <td>
-                        <a href="#" class="btn btn-info" role="button">Details</a>
+                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
                 </tr>
                 <tr>
+                    <td>5</td>
                     <td>lorem pinchi atom</td>
                     <td><img src="images/2.jpg" alt="dress" width="100px" height="100px"></td>
                     <td>899</td>
                     <td>Sarri</td>
                     <td>Sold Out</td>
                     <td>
-                        <a href="#" class="btn btn-info" role="button">Details</a>
+                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
                 </tr>
                 <tr>
+                    <td>6</td>
                     <td>lorem pinchi atom</td>
                     <td><img src="images/1.jpg" alt="dress" width="100px" height="100px"></td>
                     <td>1050</td>
                     <td>Bed Sheet</td>
                     <td>70%</td>
                     <td>
-                        <a href="#" class="btn btn-info" role="button">Details</a>
+                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
                 </tr>
             </tbody>

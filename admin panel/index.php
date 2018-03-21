@@ -7,18 +7,20 @@
 				<h1>Glamour Craze</h1>
 			</div>
 			<div class="col-md-6 text-center">
-				<div class="watch">
-			        <table class="tabBlock" align="center" cellspacing="0" cellpadding="0" border="0">
-			            <tr><td class="clock" id="dc"></td>
-			                <td>
-			                    <table cellpadding="0" cellspacing="0" border="0">
-			                        <tr><td class="clocklg" id="dc_hour"></td></tr>
-			                        <tr><td class="clocklg" id="dc_second"></td></tr>
-			                    </table>
-			                </td>
-			            </tr>
-			        </table>
-			    </div>
+				<center>
+					<div class="watch">
+				        <table class="tabBlock" align="center" cellspacing="0" cellpadding="0" border="0">
+				            <tr><td class="clock" id="dc"></td>
+				                <td>
+				                    <table cellpadding="0" cellspacing="0" border="0">
+				                        <tr><td class="clocklg" id="dc_hour"></td></tr>
+				                        <tr><td class="clocklg" id="dc_second"></td></tr>
+				                    </table>
+				                </td>
+				            </tr>
+				        </table>
+				    </div>
+			    </center>
 			</div>
 		</div>
 
@@ -51,7 +53,7 @@
 		</div><br>
 
 		<!-- Calender -->
-		<div class="row">
+		<div class="row cal-map">
 			<div class="col-md-6">
 				<div class="calender">
 					<div class="month">      

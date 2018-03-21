@@ -37,10 +37,10 @@
                     <div class="pages">
                         <a href="index.php">Dashboard</a>
                         <a href="products.php">Product List</a>
-                        <a href="edit.html">Add Product</a>
-                        <a href="order.html">New Order <span class="badge badge-pill badge-success">5</span></a>
-                        <a href="review.html">New Review <span class="badge badge-pill badge-success">2</span></a>
-                        <a href="addcata.html">Add Catagory</a>
+                        <a href="addproduct.php">Add Product</a>
+                        <a href="order.php">New Order <span class="badge badge-pill badge-success">5</span></a>
+                        <a href="review.php">New Review <span class="badge badge-pill badge-success">2</span></a>
+                        <a href="category.php">Category</a>
                     </div>
                 </div>
             </div>
