@@ -37,6 +37,7 @@
                     <th>Price</th>
                     <th>Catagories</th>
                     <th>Status</th>
+                    <th>Date</th>
                     <th>More</th>
                 </tr>
             </thead>
@@ -48,6 +49,7 @@
                     <td>899</td>
                     <td>Kameez</td>
                     <td>70%</td>
+                    <td>25-04-2018</td>
                     <td>
                         <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
@@ -59,6 +61,7 @@
                     <td>799</td>
                     <td>Saari</td>
                     <td>Sold Out</td>
+                    <td>25-04-2018</td>
                     <td>
                         <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
@@ -70,6 +73,7 @@
                     <td>599</td>
                     <td>Saari</td>
                     <td>50%</td>
+                    <td>25-04-2018</td>
                     <td>
                         <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
@@ -81,6 +85,7 @@
                     <td>999</td>
                     <td>Kameez</td>
                     <td>70%</td>
+                    <td>25-04-2018</td>
                     <td>
                         <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
@@ -92,6 +97,7 @@
                     <td>899</td>
                     <td>Sarri</td>
                     <td>Sold Out</td>
+                    <td>25-04-2018</td>
                     <td>
                         <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>
@@ -103,6 +109,7 @@
                     <td>1050</td>
                     <td>Bed Sheet</td>
                     <td>70%</td>
+                    <td>25-04-2018</td>
                     <td>
                         <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
                     </td>

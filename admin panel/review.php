@@ -8,6 +8,7 @@
                 	<th>Name</th>
                     <th>Rating</th>
                     <th>Review</th>
+                    <th>Time</th>
                     <th>Option</th>
                 </tr>
             </thead>
@@ -18,6 +19,7 @@
                         <td>
                         	Fast and excellent service. I recommend everyone to try it from here.    
                         </td>
+                        <td>25-04-2018</td>
                         <td>
                             <button class="btn btn-success"> Approve </button>
                             <button href="#" class="btn btn-danger"> Delete </button>
@@ -29,6 +31,7 @@
                         <td>
                         	Fast and excellent service. I recommend everyone to try it from here.    
                         </td>
+                        <td>25-04-2018</td>
                         <td>
                             <button class="btn btn-success"> Approve </button>
                             <button href="#" class="btn btn-danger"> Delete </button>
@@ -40,6 +43,7 @@
                         <td>
                         	Fast and excellent service. I recommend everyone to try it from here. Fast and excellent service. I recommend everyone to try it from here.   
                         </td>
+                        <td>25-04-2018</td>
                         <td>
                             <button class="btn btn-success"> Approve </button>
                             <button href="#" class="btn btn-danger"> Delete </button>
@@ -51,6 +55,7 @@
                         <td>
                         	Fast and excellent service. I recommend everyone to try it from here.    
                         </td>
+                        <td>25-04-2018</td>
                         <td>
                             <button class="btn btn-success"> Approve </button>
                             <button href="#" class="btn btn-danger"> Delete </button>

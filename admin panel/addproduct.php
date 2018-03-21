@@ -3,7 +3,7 @@
 ?>
    		<center>
 			<div class="col-md-12 view-img">
-				<img src="images/1.jpg" alt="add" height="260px" width="237px"><br><br>
+				<img src="images/add_photo.png" alt="add" height="260px" width="237px"><br><br>
 				<a href="#" class="btn btn-info" role="button">Upload</a>
 			</div>
 		</center><br><br>
