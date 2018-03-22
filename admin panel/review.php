@@ -1,5 +1,18 @@
 <?php
 	include_once 'header.php';
+
+    if(isset($_GET["delete"])) {
+      $delete = $_GET["delete"];
+    }
+
+    try {
+        $sql = "DELETE FROM review WHERE review_id='$delete'";
+
+        $conn->exec($sql);
+
+    } catch(PDOException $e) {
+      echo $sql . "<br>" . $e->getMessage();
+    }
 ?>
 
 		<table class="table table-bordered table-hover review">
@@ -13,54 +26,30 @@
                 </tr>
             </thead>
                 <tbody class="text-center">
+                    <?php 
+                        try {
+                          $stmt = $conn->prepare("SELECT * FROM review"); 
+                          $stmt->execute();
+
+                          if($stmt->rowCount() > 0) {
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
                     <tr>
-                        <td>Jhon Doe</td>
-                        <td> 5 </td>
+                        <td><?php echo $row['user_name'];?></td>
+                        <td> <?php echo $row['rating'];?> </td>
+                        <td><?php echo $row['comment'];?></td>
+                        <td><?php echo $row['time'];?></td>
                         <td>
-                        	Fast and excellent service. I recommend everyone to try it from here.    
-                        </td>
-                        <td>25-04-2018</td>
-                        <td>
-                            <button class="btn btn-success"> Approve </button>
-                            <button href="#" class="btn btn-danger"> Delete </button>
+                            <a href="review.php?delete=<?php echo $row['review_id'];?>" class="btn btn-danger"> Delete </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Jhon Doe</td>
-                        <td> 5 </td>
-                        <td>
-                        	Fast and excellent service. I recommend everyone to try it from here.    
-                        </td>
-                        <td>25-04-2018</td>
-                        <td>
-                            <button class="btn btn-success"> Approve </button>
-                            <button href="#" class="btn btn-danger"> Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jhon Doe</td>
-                        <td> 5 </td>
-                        <td>
-                        	Fast and excellent service. I recommend everyone to try it from here. Fast and excellent service. I recommend everyone to try it from here.   
-                        </td>
-                        <td>25-04-2018</td>
-                        <td>
-                            <button class="btn btn-success"> Approve </button>
-                            <button href="#" class="btn btn-danger"> Delete </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jhon Doe</td>
-                        <td> 5 </td>
-                        <td>
-                        	Fast and excellent service. I recommend everyone to try it from here.    
-                        </td>
-                        <td>25-04-2018</td>
-                        <td>
-                            <button class="btn btn-success"> Approve </button>
-                            <button href="#" class="btn btn-danger"> Delete </button>
-                        </td>
-                    </tr>
+                    <?php
+                                }
+                            }
+                        } catch(PDOException $e) {
+                            echo "Error: ".$e->getMessage();
+                        }
+                    ?>
                 </tbody>
             </table>
 

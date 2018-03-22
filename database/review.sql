@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 21, 2018 at 08:31 AM
+-- Generation Time: Mar 22, 2018 at 07:16 PM
 -- Server version: 5.6.35
 -- PHP Version: 5.5.38
 
@@ -32,7 +32,14 @@ CREATE TABLE IF NOT EXISTS `review` (
   `rating` int(255) NOT NULL,
   `comment` varchar(999) NOT NULL,
   `time` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`review_id`, `user_name`, `rating`, `comment`, `time`) VALUES
+(1, 'Azharul Islam', 4, 'Its a very good market place', '2018-03-23');
 
 --
 -- Indexes for dumped tables
@@ -52,7 +59,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `review_id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

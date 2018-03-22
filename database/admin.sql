@@ -23,42 +23,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
-  `cat_id` int(255) NOT NULL,
-  `cat_name` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`cat_id`, `cat_name`) VALUES
-(1, 'Saari'),
-(2, 'Kameez'),
-(3, 'Bedsheet');
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(255) NOT NULL,
+  `admin_name` varchar(255) NOT NULL,
+  `admin_pass` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `category`
+-- Indexes for table `admin`
 --
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`cat_id`);
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT for table `admin`
 --
-ALTER TABLE `category`
-  MODIFY `cat_id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+ALTER TABLE `admin`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

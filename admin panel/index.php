@@ -24,12 +24,29 @@
 			</div>
 		</div>
 
+		<?php
+			try {
+	            $stmt = $conn->prepare("SELECT * FROM order_list WHERE status=2");
+	            $stmt->execute();
+	            $orders = $stmt->rowCount();
+	            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          			$sell += $row['price'];
+          		}
+
+	            $stmt1 = $conn->prepare("SELECT * FROM product_list"); 
+	            $stmt1->execute();
+	            $products = $stmt1->rowCount();
+
+	        } catch(PDOException $e) {
+	        	echo "Error: ".$e->getMessage();
+	        }
+		?>
 		<!-- Buttons -->
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card bg-primary text-white">
 			    	<div class="card-body">
-			    		<h1>25</h1>
+			    		<h1><?php echo $orders;?></h1>
 			    		<p>Total Order</p>
 			    	</div>
 			  	</div>
@@ -37,7 +54,7 @@
 			<div class="col-md-4">
 				<div class="card bg-success text-white">
 			    	<div class="card-body">
-			    	<h1>25</h1>
+			    	<h1><?php echo $sell;?> Taka</h1>
 			    	<p>Total Sell</p>
 			    </div>
 			  	</div>
@@ -45,7 +62,7 @@
 			<div class="col-md-4">
 				<div class="card bg-info text-white">
 			    	<div class="card-body">
-			    		<h1>25</h1>
+			    		<h1><?php echo $products;?></h1>
 			    		<p>Total Products</p>
 			    	</div>
 			  	</div>

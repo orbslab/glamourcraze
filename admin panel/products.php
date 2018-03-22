@@ -42,78 +42,34 @@
                 </tr>
             </thead>
             <tbody class="text-center">
-                <tr>
-                    <td>1</td>
-                    <td>lorem pinchi atom</td>
-                    <td><img src="images/1.jpg" alt="dress" width="100px" height="100px"></td>
-                    <td>899</td>
-                    <td>Kameez</td>
-                    <td>70%</td>
-                    <td>25-04-2018</td>
-                    <td>
-                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>lorem pinchi atom</td>
-                    <td><img src="images/2.jpg" alt="dress" width="100px" height="100px"></td>
-                    <td>799</td>
-                    <td>Saari</td>
-                    <td>Sold Out</td>
-                    <td>25-04-2018</td>
-                    <td>
-                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>lorem pinchi atom</td>
-                    <td><img src="images/3.jpg" alt="dress" width="100px" height="100px"></td>
-                    <td>599</td>
-                    <td>Saari</td>
-                    <td>50%</td>
-                    <td>25-04-2018</td>
-                    <td>
-                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>lorem pinchi atom</td>
-                    <td><img src="images/3.jpg" alt="dress" width="100px" height="100px"></td>
-                    <td>999</td>
-                    <td>Kameez</td>
-                    <td>70%</td>
-                    <td>25-04-2018</td>
-                    <td>
-                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>lorem pinchi atom</td>
-                    <td><img src="images/2.jpg" alt="dress" width="100px" height="100px"></td>
-                    <td>899</td>
-                    <td>Sarri</td>
-                    <td>Sold Out</td>
-                    <td>25-04-2018</td>
-                    <td>
-                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>lorem pinchi atom</td>
-                    <td><img src="images/1.jpg" alt="dress" width="100px" height="100px"></td>
-                    <td>1050</td>
-                    <td>Bed Sheet</td>
-                    <td>70%</td>
-                    <td>25-04-2018</td>
-                    <td>
-                        <a href="edit.php" target="_blank" class="btn btn-info" role="button">Details</a>
-                    </td>
-                </tr>
+
+                <?php
+                    try {
+                        $stmt = $conn->prepare("SELECT * FROM product_list"); 
+                        $stmt->execute();
+
+                        if($stmt->rowCount() > 0) {
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                                <tr>
+                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo $row['name']; ?></td>
+                                    <td><img src="<?php echo $row['img']; ?>" alt="dress" width="100px" height="100px"></td>
+                                    <td><?php echo $row['price']; ?></td>
+                                    <td><?php echo $row['category']; ?></td>
+                                    <td><?php echo $row['status']; ?></td>
+                                    <td><?php echo $row['up_date']; ?></td>
+                                    <td>
+                                        <a href="edit.php?num=<?php echo $row['id'];?>" target="_blank" class="btn btn-info" role="button">Details</a>
+                                    </td>
+                                </tr>
+                <?php
+                            }
+                        }
+                    } catch(PDOException $e) {
+                        echo "Error: " . $e->getMessage();
+                    }
+                ?>
             </tbody>
         </table>
         <ul class="pagination">
