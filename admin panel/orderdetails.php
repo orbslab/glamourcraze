@@ -4,6 +4,19 @@
   if(isset($_GET["num"])) {
       $num = $_GET["num"];
   }
+
+  if(isset($_GET["delete"])) {
+      $delete = $_GET["delete"];
+
+      try {
+          $del = "DELETE FROM order_list WHERE order_num='$delete'";
+          $conn->exec($del);
+
+          echo "<script>window.close();</script>";
+      } catch(PDOException $e) {
+        echo $del . "<br>" . $e->getMessage();
+      }
+  }
 ?>
 
 	<h4>Order Details</h4><br>
@@ -65,11 +78,38 @@
 
   	<form action="" method="post">
   		<button class="btn btn-success" role="button" name="approve"> Approve </button>
-      <button class="btn btn-danger" role="button" name="cancel"> Delete </button>
+      <a href="orderdetails.php?delete=<?php echo $num;?>" class="btn btn-danger" role="button" name="delete"> Delete </button>
     </form>
 
 <?php
-  if(isset($_POST['approve'])) {
+
+  if (isset($_POST['approve'])) {
+    $to = $row['user_email'];
+    $subject = "Your Order Is Accepted";
+
+    $message = "
+    <html>
+    <head>
+      <title>Your Order Is Accepted</title>
+    </head>
+    <body>
+      <div style='border: 1px solid black; padding: 5px; width: 500px; text-align: justify;'>
+        <h1 style='background: lightgreen; text-align: center; padding: 10px;'>Your Order Is Accepted</h1>
+        <p>Dear Sir/Madam,</p>
+        <p>After review your order, <b>GlamourCraze</b> team accept your order, hope as soon as possible we delivered your item to your given address.</p><br>
+        <p>Thank You</p>
+      </div>
+    </body>
+    </html>";
+
+    // Always set content-type when sending HTML email
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= 'From: hello@orbslab.org' . "\r\n";
+
+    mail($to,$subject,$message,$headers);
+
+
     try {
         $sql = "UPDATE order_list SET status='2' WHERE order_num='$num'";
         
@@ -81,6 +121,9 @@
     }
 
     $conn = null;
+
+    $alert = "Order is accepted";
+    echo "<script type='text/javascript'>alert('$alert');</script>";
   }
 
 	include_once 'footer.php';

@@ -16,7 +16,7 @@
             <tbody class="text-center">
                 <?php
                     try {
-                        $stmt = $conn->prepare("SELECT * FROM order_list"); 
+                        $stmt = $conn->prepare("SELECT * FROM order_list WHERE status=1"); 
                         $stmt->execute();
 
                         if($stmt->rowCount() > 0) {

@@ -1,5 +1,4 @@
  // Script for Clock
-
 window.onload = setInterval(digitized, 1000);
 
 function digitized() {
@@ -18,7 +17,7 @@ function digitized() {
         document.getElementById('dc_hour').innerHTML = 'PM'; 
     }
     else { 
-        document.getElementById('dc_hour').innerHTML = 'AM'; 
+        document.getElementById('dc_hour').innerHTML = 'AM';
     }
 
     // CALL THE FUNCTION EVERY 1 SECOND (RECURSION).
@@ -31,4 +30,17 @@ function Ticking(ticVal) {
         ticVal = "0" + ticVal;
     }
     return ticVal;
+}
+
+// Auto Loader Image, After Browse
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#add-img').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }

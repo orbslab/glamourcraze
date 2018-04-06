@@ -5,6 +5,19 @@
       $id = $_GET["num"];
   }
 
+  if (isset($_GET['delete'])) {
+      $delete = $_GET['delete'];
+
+      try {
+          $del = "DELETE FROM product_list WHERE id='$delete'";
+          $conn->exec($del);
+
+          echo "<script>window.close();</script>";
+      } catch(PDOException $e) {
+        echo $del . "<br>" . $e->getMessage();
+      }
+  }
+
   try {
     $stmt = $conn->prepare("SELECT * FROM product_list WHERE id='$id'"); 
     $stmt->execute();
@@ -15,8 +28,8 @@
  			<form enctype="multipart/form-data" action="" method="post">
         <div class="form-group col-md-12 view-img">
           <center>
-            <img src="<?php echo $row['img'];?>" alt="add" height="260px" width="237px"><br><br>
-            <input class="btn btn-info" type="file" name="image" accept="image/*"/>
+            <img id="zoom_01" src="<?php echo $row['img'];?>" alt="add" height="260px" width="237px" data-zoom-image="<?php echo $row['img'];?>"><br><br>
+            <input class="btn btn-info" type="file" name="img" accept="image/*" onchange="readURL(this);"/>
           </center>
         </div>
 		    <div class="form-group">
@@ -51,25 +64,45 @@
 		    	<label for="sel1">Select Catagory</label>
             <select required class="col-md-6 form-control" name="category">
             	<option value="<?php echo $row['category'];?>" selected>Select Category</option>
-              <option value="Saari">Saari</option>
-              <option value="Kameez">Kameez</option>
-              <option value="Bedsheet">Bedsheet</option>
+              <?php
+                try {
+                    $stmt = $conn->prepare("SELECT * FROM category");
+                    $stmt->execute();
+                    $orders = $stmt->rowCount();
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                      
+            ?>
+                    <option value="<?php echo $row['cat_name'];?>"><?php echo $row['cat_name'];?></option>
+            <?php
+                    }
+                } catch(PDOException $e) {
+                  echo "Error: ".$e->getMessage();
+                }
+            ?>
             </select>
         </div>
         <div class="baton">
           <button class="btn btn-success" role="button" name="update"> Update </button>
-          <button class="btn btn-danger" role="button" name="cancel"> Cancel </button>
+          <a href="edit.php?delete=<?php echo $id;?>" class="btn btn-danger" role="button" name="delete"> Delete </a>
         </div>
 			</form>
+
+      <script>
+          $('#zoom_01').elevateZoom({
+            easing : true,
+            scrollZoom : true
+          });
+      </script>
 
 <?php
       date_default_timezone_set("Asia/Dhaka");
 
       if (isset($_POST['update'])) {
         
-        if(!empty($_POST['image'])) {
-          $pic_path = "../product_pic/".time().$_FILES['image']['name'];
-          move_uploaded_file($_FILES['image']['tmp_name'],$pic_path);
+        if(!empty($_POST['img'])) {
+          unlink($row['img']);
+          $pic_path = "../product_pic/".time().$_FILES['img']['name'];
+          move_uploaded_file($_FILES['img']['tmp_name'],$pic_path);
 
         } else {
           $pic_path = $row['img'];

@@ -2,11 +2,11 @@
 	include_once 'header.php';
 ?>
 
- 			<form action="" method="post" enctype="multipart/form-data">
+ 			<form action="" method="post" enctype="multipart/form-data" runat="server">
           <div class="form-group col-md-12 view-img">
             <center>
-              <img src="images/add_photo.png" alt="add" height="260px" width="237px"><br><br>
-              <input class="btn btn-info" type="file" name="image" required="1" accept="image/*"/>
+              <img src="../images/add_photo.png" id="add-img" alt="add" height="260px" width="237px"><br><br>
+              <input class="btn btn-info" type="file" name="image" required="1" accept="image/*" onchange="readURL(this);"/>
             </center>
           </div><br><br>
         <div class="form-group">
@@ -41,9 +41,21 @@
 		    	<label for="sel1">Catagory :</label>
           <select required class="col-md-6 form-control" name="category">
           	<option selected="1" disabled="1">Select Category</option>
-            <option value="Saari">Saari</option>
-            <option value="Kameez">Kameez</option>
-            <option value="Bedsheet">Bedsheet</option>
+            <?php
+                try {
+                    $stmt = $conn->prepare("SELECT * FROM category");
+                    $stmt->execute();
+                    $orders = $stmt->rowCount();
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                      
+            ?>
+                    <option value="<?php echo $row['cat_name'];?>"><?php echo $row['cat_name'];?></option>
+            <?php
+                    }
+                } catch(PDOException $e) {
+                  echo "Error: ".$e->getMessage();
+                }
+            ?>
           </select>
         </div>
         <div class="baton">

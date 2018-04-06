@@ -19,6 +19,7 @@
             <thead>
                 <tr class="text-center">
                 	<th>Name</th>
+                    <th>P. Id</th>
                     <th>Rating</th>
                     <th>Review</th>
                     <th>Time</th>
@@ -36,6 +37,7 @@
                     ?>
                     <tr>
                         <td><?php echo $row['user_name'];?></td>
+                        <td><?php echo $row['p_id'];?></td>
                         <td> <?php echo $row['rating'];?> </td>
                         <td><?php echo $row['comment'];?></td>
                         <td><?php echo $row['time'];?></td>
