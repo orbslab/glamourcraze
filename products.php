@@ -1,85 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Glamour Craze">
-    <meta name="keywords" content="Glamour Craze, Glamour, Sylhet">
-    <meta name="author" content="OrbsLab">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php 
+    include_once 'header.php';
 
-    <title>GlamourCraze | Your Trend Is Our Attitude</title>
-    
-    <link rel="icon" href="images/glamour.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="font/font-awesome-4.7.0/css/font-awesome.min.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    <script src='js/jquery.elevatezoom.js'></script>
-</head>
+    $pbc = $_GET['cat'];
+?>
 
-<body>
     <div class="row" style="margin-top: 50px;">
         <div class="col-md-2" style="border-right: 1px solid grey;">
             <div class="cat">
                 <ul>
                     <p><b>Category</b></p>
-                    <li><a href="#" class="active">All</a></li>
-                    <li><a href="#">Saari</a></li>
-                    <li><a href="#">Kameez</a></li>
-                    <li><a href="#">Bedsheet</a></li>
+                    <li><a href="products.php?cat=All">All</a></li>
+                    <?php
+                        try {
+                            $op2 = $conn->prepare("SELECT * FROM category");
+                            $op2->execute();
+                            while ($op2_row = $op2->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                        <li class="dropdown-item">
+                            <li><a href="products.php?cat=<?php echo $op2_row['cat_name'];?>"><?php echo $op2_row['cat_name'];?></a></li>
+                        </li>
+                    <?php
+                            }
+                        } catch(PDOException $e) {
+                          echo "Error: ".$e->getMessage();
+                        }
+                    ?>
                 </ul>
-            </div><hr>
-            <div class="sort">
-                <p><b>Filter</b></p>
-                <form>
-                    <div class="radio">
-                      <label><input type="radio" name="optradio"> Most Rated</label>
-                    </div>
-                    <div class="radio">
-                      <label><input type="radio" name="optradio"> Newest</label>
-                    </div>
-                    <div class="radio">
-                      <label><input type="radio" name="optradio"> High To Low Price</label>
-                    </div>
-                    <div class="radio">
-                      <label><input type="radio" name="optradio"> Low To High Price</label>
-                    </div>
-                </form>
             </div>
         </div>
-        <div class="col-md-8">
-            <div class="products">
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
+        <div class="col-md-9">
+            <div class="row best">
+                <?php
+                    if($pbc == 'All') {
+                        $csql = "SELECT * FROM product_list";
+                    } else {
+                        $csql = "SELECT * FROM product_list WHERE category=?";
+                    }
+
+                    try {
+                        $csql = $conn->prepare($csql);
+                        $csql->execute([$pbc]);
+
+                        while ($csql_row = $csql->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                <div class="col-md-3">
+                    <div class="column">
+                        <div class="post-module">
+                            <div class="thumbnail">
+                                <div class="date"> <a href="#0">
+                                    <div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+                                    </a> 
+                                </div>
+                                <img src="controller/<?php echo $csql_row['img'];?>" class="img-responsive" alt="">
+                            </div>
+                            <div class="post-content">
+                                <div class="category">-10%</div>
+                                <div class="sub_title text-center">
+                                    <?php echo $csql_row['name'];?>
+                                </div>
+                                <div class="post-meta text-center"><span class="timestamp">TK : <?php echo $csql_row['price'];?></span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
-                <div class="img-box">
-                    <img src="images/bag.jpeg">
-                </div>
+                <?php
+                        }
+                    } catch(PDOException $e) {
+                      echo "Error: ".$e->getMessage();
+                    }
+                ?>
             </div>
 
             <div class="pagination">
@@ -93,7 +82,9 @@
                 <a href="#">>></a>
             </div>
         </div>
-        <div class="col-md-1"></div>
+        <div class="col-md-1">
     </div>
-</body>
-</html>
+
+<?php 
+    include_once 'footer.php';
+?>

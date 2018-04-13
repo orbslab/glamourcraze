@@ -37,7 +37,7 @@
                         <td><?php echo $row['cat_id'];?></td>
                         <td><?php echo $row['cat_name'];?></td>
                         <td>
-                            <a href="category.php?delete=<?php echo $row['cat_id'];?>" class="btn btn-danger" role="button"> DELETE </a>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Delete</button>
                         </td>
                     </tr>
                     <?php
@@ -60,6 +60,26 @@
                 </form>
             </div>
         </div>
+
+        <!-- Modal -->
+          <div class="modal fade" id="delete" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Category</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Are You Sure To Delete This Category?</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="category.php?delete=<?php echo $row['cat_id'];?>" class="btn btn-danger" role="button"> DELETE </a>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 <?php
     if(isset($_POST['add'])) {

@@ -1,0 +1,114 @@
+@media (max-width: 767px){
+  .banners {
+    margin: 10px 0 0 0 !important;
+  }
+  .modtitle{
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 767px){
+  .footer-top{}
+}
+/*=====================
+  Navbar (All)
+========================================*/
+@media only screen and (min-width: 768px) and (max-width: 908px){
+  .header-items .ml-3{
+    padding: 0 0 0 5px !important;
+    margin: 0 !important;
+  }
+}
+@media only screen and (min-width: 660px) and (max-width: 767px){
+  .middleBar img {
+    width: 10rem;
+    height: 5rem;
+    margin: -15px 0px;
+  }
+  .header-items .ml-3{
+    padding: 0 0 0 5px !important;
+    margin: 0 !important;
+  }
+  .middleBar .input-lg {
+    width: 150% !important;
+    margin-left: -20px !important;
+  }
+
+  .middleBar .btn.btn-default {
+    width: 130% !important;
+    margin-left: -10px !important;
+  }
+  .middleBar .header-items .header-item {
+      float: left;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 659px){
+  .middleBar img {
+    width: 10rem;
+    height: 5rem;
+    margin: -15px 0px;
+  }
+  .header-items .ml-3{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .middleBar .form-control{
+    width: 105%;
+  }
+  .middleBar .input-lg {
+    width: 160% !important;
+    margin-left: -20px !important;
+  }
+
+  .middleBar .btn.btn-default {
+    margin-left: -15px !important;
+    width: 160%;
+  }
+  .middleBar .header-items .header-item {
+      float: left;
+  }
+}
+@media only screen and (min-width: 280px) and (max-width: 575px){
+  .middleBar{
+    margin-bottom: 25px !important;
+  }
+}
+
+
+@media only screen and (min-width: 280px) and (max-width: 510px){
+  .block-policy2 {}
+
+  .block-policy2 ul li {
+      padding: 0 15px;
+      width: 20%;
+  }
+  .block-policy2 ul li:before {
+      height: 40px;
+  }
+  .block-policy2 ul li .item-inner .icon {
+      margin-left: -15px; 
+  }
+  .block-policy2 ul li .item-inner .content {
+      margin-left: -10px;
+      margin-top: 3px; 
+      font-size: 12px;
+  }
+  .modtitle {
+      margin-top: 10px;
+  }
+  .modtitle-b{
+      margin-bottom: 20px;
+  }
+  .banners {
+     margin: 0 0;
+  }
+}
+@media only screen and (min-width: 280px) and (max-width: 440px){
+  .item-inner {
+    margin-left: -15px;
+  }
+
+  .block-policy2 ul li {
+      padding: 0 22px;
+  }
+}

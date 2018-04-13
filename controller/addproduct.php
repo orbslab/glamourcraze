@@ -68,7 +68,7 @@
         date_default_timezone_set("Asia/Dhaka");
 
         if (isset($_POST['submit'])) {
-          $pic_path = "../product_pic/".time().$_FILES['image']['name'];
+          $pic_path = "product_pic/".time().$_FILES['image']['name'];
           move_uploaded_file($_FILES['image']['tmp_name'],$pic_path);
 
           $name = $_POST['name'];
@@ -82,6 +82,7 @@
           try {
               $sql = "INSERT INTO product_list (name, details, img, status, price, category, up_date) VALUES ('$name', '$details', '$pic_path', '$status', '$price', '$cate', '$up_date')";
               $conn->exec($sql);
+              echo '<script type="text/javascript">alert("Product Successfully Added!")</script>';
           } catch(PDOException $e) {
             echo $sql . "<br>" . $e->getMessage();
           }

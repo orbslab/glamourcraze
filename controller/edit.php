@@ -29,7 +29,6 @@
         <div class="form-group col-md-12 view-img">
           <center>
             <img id="zoom_01" src="<?php echo $row['img'];?>" alt="add" height="260px" width="237px" data-zoom-image="<?php echo $row['img'];?>"><br><br>
-            <input class="btn btn-info" type="file" name="img" accept="image/*" onchange="readURL(this);"/>
           </center>
         </div>
 		    <div class="form-group">
@@ -83,7 +82,7 @@
         </div>
         <div class="baton">
           <button class="btn btn-success" role="button" name="update"> Update </button>
-          <a href="edit.php?delete=<?php echo $id;?>" class="btn btn-danger" role="button" name="delete"> Delete </a>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Delete</button>
         </div>
 			</form>
 
@@ -94,19 +93,30 @@
           });
       </script>
 
+      <!-- Modal -->
+      <div class="modal fade" id="delete" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete Product</h4>
+            </div>
+            <div class="modal-body">
+              <p>Are You Sure To Delete This Product?</p>
+            </div>
+            <div class="modal-footer">
+              <a href="edit.php?delete=<?php echo $id;?>" class="btn btn-danger" role="button" name="delete"> Delete </a>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 <?php
       date_default_timezone_set("Asia/Dhaka");
 
       if (isset($_POST['update'])) {
-        
-        if(!empty($_POST['img'])) {
-          unlink($row['img']);
-          $pic_path = "../product_pic/".time().$_FILES['img']['name'];
-          move_uploaded_file($_FILES['img']['tmp_name'],$pic_path);
-
-        } else {
-          $pic_path = $row['img'];
-        }
 
         $name = $_POST['name'];
         $details = $_POST['details'];
@@ -117,7 +127,7 @@
         $up_date = date("Y-m-d");
 
         try {
-            $sql = "UPDATE product_list SET name='$name', details='$details', img='$pic_path', status='$status', price='$price', category='$cate', up_date='$up_date' WHERE id='$id'";
+            $sql = "UPDATE product_list SET name='$name', details='$details', status='$status', price='$price', category='$cate', up_date='$up_date' WHERE id='$id'";
             
             $stmt1 = $conn->prepare($sql);
             $stmt1->execute();

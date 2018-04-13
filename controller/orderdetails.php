@@ -78,8 +78,28 @@
 
   	<form action="" method="post">
   		<button class="btn btn-success" role="button" name="approve"> Approve </button>
-      <a href="orderdetails.php?delete=<?php echo $num;?>" class="btn btn-danger" role="button" name="delete"> Delete </button>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Delete</button>
     </form>
+
+    <!-- Modal -->
+      <div class="modal fade" id="delete" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete Order</h4>
+            </div>
+            <div class="modal-body">
+              <p>Are You Sure To Delete This Order?</p>
+            </div>
+            <div class="modal-footer">
+              <a href="orderdetails.php?delete=<?php echo $num;?>" class="btn btn-danger" role="button" name="delete"> Delete </a>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 <?php
 

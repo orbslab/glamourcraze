@@ -1,96 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Glamour Craze">
-    <meta name="keywords" content="Glamour Craze, Glamour, Sylhet">
-    <meta name="author" content="OrbsLab">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>GlamourCraze | Your Trend Is Our Attitude</title>
-    
-    <link rel="icon" href="images/glamour.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="font/font-awesome-4.7.0/css/font-awesome.min.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    <script src='js/jquery.elevatezoom.js'></script>
-</head>
-
-<body>
+<?php 
+    include_once 'header.php';
+?>
     <div class="container">
+<?php
+    try {
+        $keyword = $_GET['keyword'];
+        $keyword = htmlspecialchars($keyword);
+        $conn->quote($keyword);
+        $like_keyword = "%{$keyword}%";
+        $category = $_GET['category'];
+
+        if ($category != '') {
+            $sql = $conn->prepare("SELECT * FROM product_list WHERE category='$category' AND name LIKE ?"); 
+        }
+        else {
+            $sql = $conn->prepare("SELECT * FROM product_list WHERE name LIKE ?");
+        }
+        $sql->execute([$like_keyword]);
+
+        if($sql->rowCount() > 0) {
+            while ($row1 = $sql->fetch(PDO::FETCH_ASSOC)) {
+?>
         <div class="card res-box">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-2 img">
-                        <center><img src="images/bag.jpeg" alt="product" width="120" height="120"></center>
+                        <center><img src="controller/<?php echo $row1['img'];?>" alt="product" width="120" height="120"></center>
                     </div>
                     <div class="col-md-8">
-                        <h5>Product Name</h5>
-                        <a href="#" style="color: grey;">Category</a>
+                        <h5><?php echo $row1['name']; ?></h5>
+                        <a href="#" style="color: grey;"><?php echo $row1['category']; ?></a>
                         <p class="rating" style="color: orange;">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </p>
-                        <a href="#">View Details</a>
+                        <a href="productdetails.php?num=<?php echo $row1['id'];?>">View Details</a>
                     </div>
                     <div class="col-md-2 details1">
-                        <p>799 Taka</p>
-                        <button type="button" class="btn btn-warning">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card res-box">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-2 img">
-                        <center><img src="images/bag.jpeg" alt="product" width="120" height="120"></center>
-                    </div>
-                    <div class="col-md-8">
-                        <h5>Product Name</h5>
-                        <a href="#" style="color: grey;">Category</a>
-                        <p class="rating" style="color: orange;">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </p>
-                        <a href="#">View Details</a>
-                    </div>
-                    <div class="col-md-2 details1">
-                        <p>799 Taka</p>
-                        <button type="button" class="btn btn-warning">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card res-box">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-2 img">
-                        <center><img src="images/bag.jpeg" alt="product" width="120" height="120"></center>
-                    </div>
-                    <div class="col-md-8">
-                        <h5>Product Name</h5>
-                        <a href="#" style="color: grey;">Category</a>
-                        <p class="rating" style="color: orange;">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </p>
-                        <a href="#">View Details</a>
-                    </div>
-                    <div class="col-md-2 details1">
-                        <p>799 Taka</p>
+                        <p><?php echo $row1['price']; ?> Taka</p>
                         <button type="button" class="btn btn-warning">ADD TO CART</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="pagination">
+        <?php
+                    }
+                } else {
+                    echo "<h1>Sorry, No Result Found!</h1>";
+                }
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+
+            $sql = null;
+        ?>
+
+        <!-- <div class="pagination">
             <a href="#"><<</a>
             <a href="#">1</a>
             <a href="#" class="active">2</a>
@@ -99,7 +66,9 @@
             <a href="#">5</a>
             <a href="#">6</a>
             <a href="#">>></a>
-        </div>
+        </div> -->
     </div>
-</body>
-</html>
+
+<?php 
+    include_once 'footer.php';
+?>

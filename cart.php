@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Glamour Craze">
-    <meta name="keywords" content="Glamour Craze, Glamour, Sylhet">
-    <meta name="author" content="OrbsLab">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php 
+	include_once 'header.php';
+?>
 
-    <title>GlamourCraze | Our Trend Is Your Attitude</title>
-    
-    <link rel="icon" href="images/glamour.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="font/font-awesome-4.7.0/css/font-awesome.min.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.min.js"></script>
-    <script src='js/jquery.elevatezoom.js'></script>
-</head>
-
-<body>
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-7">
@@ -46,7 +29,7 @@
 			    			</div>
 			    		</div>
 			    	</div>
-			    	<div class="row">
+			    	<div class="row" style="border: 1px solid grey;">
 			    		<div class="col-md-4">
 			    			<img src="images/2.jpg" align="item" height="150" width="150">
 			    		</div>
@@ -125,25 +108,77 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <div class="row">
-                    <div class="products">
-                        <div class="img-box">
-                            <img src="images/bag.jpeg">
+                <div class="row best">
+                    <div class="col-md-3">
+                        <div class="column">
+                            <div class="post-module">
+                                <div class="thumbnail">
+                                    <div class="date"> <a href="#0">
+                                        <div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+                                        </a> 
+                                    </div>
+                                    <img src="images/Sarri (5).jpg" class="img-responsive" alt="">
+                                </div>
+                                <div class="post-content">
+                                    <div class="category">-10%</div>
+                                    <div class="sub_title text-center">
+                                        Shari Kammez
+                                    </div>
+                                    <div class="post-meta text-center"><span class="timestamp">TK : 650</span></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="img-box">
-                            <img src="images/bag.jpeg">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="column">
+                            <div class="post-module">
+                                <div class="thumbnail">
+                                    <div class="date"> <a href="#0">
+                                        <div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+                                    </a> </div>
+                                <img src="images/Sarri (5).jpg" class="img-responsive" alt=""> </div>
+                                <div class="post-content">
+                                    <div class="sub_title text-center">
+                                        Shari Kammez
+                                    </div>
+                                    <div class="post-meta text-center"><span class="timestamp">TK : 1300</span></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="img-box">
-                            <img src="images/bag.jpeg">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="column">
+                            <div class="post-module">
+                                <div class="thumbnail">
+                                    <div class="date"> <a href="#0">
+                                        <div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+                                    </a> </div>
+                                <img src="images/sk4.jpg" class="img-responsive" alt=""> </div>
+                                <div class="post-content">
+                                    <div class="sub_title text-center">
+                                        Shari Kammez
+                                    </div>
+                                    <div class="post-meta text-center"><span class="timestamp">TK : 900</span></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="img-box">
-                            <img src="images/bag.jpeg">
-                        </div>
-                        <div class="img-box">
-                            <img src="images/bag.jpeg">
-                        </div>
-                        <div class="img-box">
-                            <img src="images/bag.jpeg">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="column">
+                            <div class="post-module">
+                                <div class="thumbnail">
+                                    <div class="date"> <a href="#0">
+                                        <div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div></a> 
+                                    </div>
+                                    <img src="images/sk4.jpg" class="img-responsive" alt=""> 
+                                </div>
+                                <div class="post-content">
+                                    <div class="sub_title text-center">
+                                        Shari Kammez
+                                    </div>
+                                    <div class="post-meta text-center"><span class="timestamp"> Tk : 400</span></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -151,5 +186,7 @@
             <div class="col-md-1"></div>
         </div>
     </div>
-</body>
-</html>
+
+<?php 
+	include_once 'footer.php';
+?>
