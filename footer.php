@@ -14,51 +14,21 @@
 						<div class="popup-content">
 							<div class="nav-secondary">
 								<ul>
-									<li>
-										<span class="nav-action">
-											<i class="fa fa-plus more"></i>
-											<i class="fa fa-minus less"></i>
-										</span>
-										<a href="#"><i class="fa fa-chevron-down nav-arrow"></i>Shari</a>
-										<ul class="level-2">
-											<li>
-												<a href="#"><i class="fa fa-chevron-right flip nav-arrow"></i>New Collection</a>
-											</li>
-											<li>
-												<a href="#"><i class="fa fa-chevron-right flip nav-arrow"></i>Best Rated</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<span class="nav-action">
-											<i class="fa fa-plus more"></i>
-											<i class="fa fa-minus less"></i>
-										</span>
-										<a href="index70a9.html?route=product/category&amp;path=57"><i class="fa fa-chevron-down nav-arrow"></i>Skart</a>
-										<ul class="level-2">
-											<li>
-												<a href="#"><i class="fa fa-chevron-right flip nav-arrow"></i>New Collection</a>
-											</li>
-											<li>
-												<a href="#"><i class="fa fa-chevron-right flip nav-arrow"></i>Best Rated</a>
-											</li>
-										</ul>
-									</li>
-									<li>
-										<span class="nav-action">
-											<i class="fa fa-plus more"></i>
-											<i class="fa fa-minus less"></i>
-										</span>
-										<a href="index70a9.html?route=product/category&amp;path=57"><i class="fa fa-chevron-down nav-arrow"></i>Kameez</a>
-										<ul class="level-2">
-											<li>
-												<a href="#"><i class="fa fa-chevron-right flip nav-arrow"></i>New Collection</a>
-											</li>
-											<li>
-												<a href="#"><i class="fa fa-chevron-right flip nav-arrow"></i>Best Rated</a>
-											</li>
-										</ul>
-									</li>
+									<?php
+		                                try {
+		                                    $link = $conn->prepare("SELECT * FROM category");
+		                                    $link->execute();
+		                                    while ($link_row = $link->fetch(PDO::FETCH_ASSOC)) {
+		                            ?>
+										<li>
+											<a href="products.php?cat=<?php echo $link_row['cat_name'];?>"><i class="fa fa-chevron-down nav-arrow"></i><?php echo $link_row['cat_name'];?></a>
+										</li>
+									<?php
+		                                    }
+		                                } catch(PDOException $e) {
+		                                  echo "Error: ".$e->getMessage();
+		                                }
+		                            ?>
 								</ul>
 							</div>
 						</div>
@@ -79,7 +49,7 @@
 								<div class="cart-header">
 									<div class="notification gray">
 										<i class="fa fa-shopping-cart info-icon"></i>
-										<p>2 Product On Cart.<a href="#"> Go For Check Out</a></p>
+										<p><?php echo sizeof($_SESSION['cart']);?> Product On Cart.<a href="cart.php"> Go For Check Out</a></p>
 									</div>
 								</div>
 							</div>
@@ -99,19 +69,21 @@
 							</div>
 							<div class="popup-content">
 								<div class="form-content">
-									<div class="row space">
-										<div class="col">
-											<div class="form-box">
-												<input type="text" name="search" value="" placeholder="Search" id="input-search" class="field" />
-												<i class="fa fa-search sbmsearch"></i>
+									<form action="search.php" method="get">
+										<div class="row space">
+											<div class="col">
+												<div class="form-box">
+													<input type="text" name="keyword" placeholder="Search" id="input-search" class="field" />
+													<i class="fa fa-search sbmsearch"></i>
+												</div>
+											</div>
+											<div class="col">
+												<div class="form-box">
+													<button type="submit" id="button-search" class="btn button-search">Search</button>
+												</div>
 											</div>
 										</div>
-										<div class="col">
-											<div class="form-box">
-												<button type="button" id="button-search" class="btn button-search">Search</button>
-											</div>
-										</div>
-									</div>
+									</form>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -210,10 +182,10 @@
 							<h3 class="modtitle-f">Services</h3>
 							<div class="modcontent">
 								<ul class="menu">
-									<li><a href="index2724.php?route=information/contact">Contact Us</a></li>
-									<li><a href="index71ba.php?route=account/return/add">Returns</a></li>
+									<li><a href="#">Contact Us</a></li>
+									<li><a href="#">Returns</a></li>
 									<li><a href="#">Support</a></li>
-									<li><a href="index7cb2.html?route=information/sitemap">Site Map</a></li>
+									<li><a href="#">Site Map</a></li>
 									<li><a href="#">Customer Service</a></li>
 									<li><a href="#">Custom Link</a></li>
 								</ul>

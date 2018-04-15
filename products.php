@@ -47,18 +47,23 @@
                     <div class="column">
                         <div class="post-module">
                             <div class="thumbnail">
-                                <div class="date"> <a href="#0">
-                                    <div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
-                                    </a> 
+                                <div class="date">
+                                    <a href="#0">
+                                        <div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+                                    </a>
                                 </div>
-                                <img src="controller/<?php echo $csql_row['img'];?>" class="img-responsive" alt="">
+                                <img src="controller/<?php echo $csql_row['img']; ?>" class="img-responsive" alt="product">
                             </div>
                             <div class="post-content">
-                                <div class="category">-10%</div>
-                                <div class="sub_title text-center">
-                                    <?php echo $csql_row['name'];?>
-                                </div>
-                                <div class="post-meta text-center"><span class="timestamp">TK : <?php echo $csql_row['price'];?></span></div>
+                                <a href="productdetails.php?num=<?php echo $csql_row['id'];?>">
+                                    <?php if($csql_row['status'] != '' && $csql_row['status'] != 'sold out') {?>
+                                        <div class="category">- <?php echo $csql_row['status'];?>%</div>
+                                    <?php   } else if($csql_row['status'] != '' && $csql_row['status'] == 'sold out') {?>
+                                        <div class="category"><?php echo $csql_row['status'];?></div>
+                                    <?php } ?>
+                                    <h2 class="sub_title text-center"><?php echo $csql_row['name'];?></h2>
+                                    <div class="post-meta text-center"><span class="timestamp">TK : <?php echo $csql_row['price'];?></span></div>
+                                </a>
                             </div>
                         </div>
                     </div>

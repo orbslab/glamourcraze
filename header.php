@@ -1,5 +1,10 @@
 <?php
 	include_once 'controller/connect.php';
+
+	session_start();
+	if(!isset($_SESSION['cart'])) {
+		$_SESSION['cart'] = array();
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +93,7 @@
 				<!-- end col -->
 				<div class="col-lg-2 col-md-3 col-sm-3 vertical-align header-items hidden-xs">
 					<div class="header-item ml-3">
-						<a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Wishlist"><i class="fa fa-shopping-cart"></i> <sub>2</sub> </a>
+						<a href="cart.php" data-toggle="tooltip" data-placement="top" title="Go To Cart" data-original-title="Wishlist"><i class="fa fa-shopping-cart"></i> <sub><?php echo sizeof($_SESSION['cart']);?></sub> </a>
 					</div>
 				</div>
 				<!-- end col -->

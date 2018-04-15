@@ -105,7 +105,7 @@
 				  </table>
 			</div>
 			<div class="col-md-6">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57903.16604574594!2d91.82596224696448!3d24.899759462898533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054d3d270329f%3A0xf58ef93431f67382!2sSylhet!5e0!3m2!1sen!2sbd!4v1521999150837" width="100%" height="400" style="border:1px solid black;" allowfullscreen></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.2079557529587!2d91.87442741458754!3d24.890887284039486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3751ab2c966def19%3A0xfbbdd9084d6de7c5!2sGlamour+Craze!5e0!3m2!1sbn!2sbd!4v1523778557701" width="100%" height="400" style="border:1px solid black;" allowfullscreen></iframe>
 			</div>
 		</div>
 

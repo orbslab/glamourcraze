@@ -33,7 +33,7 @@
 							<div class="item-inner">
 								<div class="icon icon1"></div>
 								<div class="content">
-									<a href="#">Free Delivery</a>
+									<a>Free Delivery</a>
 									<p>On Your Home</p>
 								</div>
 							</div>
@@ -42,7 +42,7 @@
 							<div class="item-inner">
 								<div class="icon icon2"></div>
 								<div class="content">
-									<a href="#">support 24/7</a>
+									<a>support 24/7</a>
 									<p>Online 24 hours</p>
 								</div>
 							</div>
@@ -51,7 +51,7 @@
 							<div class="item-inner">
 								<div class="icon icon3"></div>
 								<div class="content">
-									<a href="#">free return</a>
+									<a>free return</a>
 									<p>365 a day</p>
 								</div>
 							</div>
@@ -60,7 +60,7 @@
 							<div class="item-inner">
 								<div class="icon icon4"></div>
 								<div class="content">
-									<a href="#">payment method</a>
+									<a>payment method</a>
 									<p>Cash On Delivery</p>
 								</div>
 							</div>
@@ -69,7 +69,7 @@
 							<div class="item-inner">
 								<div class="icon icon5"></div>
 								<div class="content">
-									<a href="#">big saving</a>
+									<a>big saving</a>
 									<p>weekend sales</p>
 								</div>
 							</div>
@@ -101,7 +101,7 @@
 						<div class="post-module">
 							<div class="thumbnail">
 								<div class="date">
-									<a href="#0">
+									<a href="productdetails.php?num=<?php echo $new_row['id'];?>">
 										<div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
 									</a>
 								</div>
@@ -109,8 +109,12 @@
 							</div>
 							<div class="post-content">
 								<a href="productdetails.php?num=<?php echo $new_row['id'];?>">
-									<div class="category"><?php echo $new_row['status'];?></div>
-										<h2 class="sub_title text-center"><?php echo $new_row['name'];?></h2>
+									<?php if($new_row['status'] != '' && $new_row['status'] != 'sold out') {?>
+										<div class="category">- <?php echo $new_row['status'];?>%</div>
+									<?php	} else if($new_row['status'] != '' && $new_row['status'] == 'sold out') {?>
+										<div class="category"><?php echo $new_row['status'];?></div>
+									<?php } ?>
+									<h2 class="sub_title text-center"><?php echo $new_row['name'];?></h2>
 									<div class="post-meta text-center"><span class="timestamp">TK : <?php echo $new_row['price'];?></span></div>
 								</a>
 							</div>
@@ -172,18 +176,23 @@
 					<div class="column">
 						<div class="post-module">
 							<div class="thumbnail">
-								<div class="date"> <a href="#0">
-									<div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
-									</a> 
+								<div class="date">
+									<a href="productdetails.php?num=<?php echo $p_cat_row['id'];?>">
+										<div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+									</a>
 								</div>
-								<img src="controller/<?php echo $p_cat_row['img'];?>" class="img-responsive" alt="product">
+								<img src="controller/<?php echo $p_cat_row['img']; ?>" class="img-responsive" alt="product">
 							</div>
 							<div class="post-content">
-								<div class="category"><?php echo $p_cat_row['status'];?></div>
-								<div class="sub_title text-center">
-									<?php echo $p_cat_row['name'];?>
-								</div>
-								<div class="post-meta text-center"><span class="timestamp">TK : <?php echo $p_cat_row['price'];?></span></div>
+								<a href="productdetails.php?num=<?php echo $p_cat_row['id'];?>">
+									<?php if($p_cat_row['status'] != '' && $p_cat_row['status'] != 'sold out') {?>
+										<div class="category">- <?php echo $p_cat_row['status'];?>%</div>
+									<?php	} else if($p_cat_row['status'] != '' && $p_cat_row['status'] == 'sold out') {?>
+										<div class="category"><?php echo $p_cat_row['status'];?></div>
+									<?php } ?>
+									<h2 class="sub_title text-center"><?php echo $p_cat_row['name'];?></h2>
+									<div class="post-meta text-center"><span class="timestamp">TK : <?php echo $p_cat_row['price'];?></span></div>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -196,13 +205,6 @@
                     }
                 ?>
 			</div>
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="banners">
-						<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
-					</div>
-				</div>
-			</div>
 		</div>
 
 		<?php
@@ -212,7 +214,14 @@
                 echo "Error: " . $e->getMessage();
             }
         ?>
+        <div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="banners">
+						<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
+					</div>
+				</div>
+			</div>
 	</section>
-<?php 
+<?php
 	include_once 'footer.php';
 ?>
