@@ -195,33 +195,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid newsletter">
-			<div class="row">
-				<div class="col-md-6 col-sm-12">
-					<div class="title-block">
-						<div class="page-heading font-title">
-							Signup for Newsletter
-						</div>
-						<div class="promotext">We’ll never share your email address with a third-party. </div>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-12">
-					<div class="row">
-						<div class="col-sm-6">
-							<input type="text" name="keyword" class="form-control" placeholder="Your Email address">
-						</div>
-						<div class="col-sm-6">
-							<input type="submit" class="btn btn-default btn-block btn-md" value="Subscribe">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="footer-bottom">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<p>GlamourCraze © 2018 Online Store. All Rights Reserved. Powered By <a href="http://www.Orbslab.org" target="_blank">Orbslab.org</a></p>
+						<p>GlamourCraze ©<?php echo date('Y');?> Online Store. All Rights Reserved. Powered By <a href="http://www.Orbslab.org" target="_blank">Orbslab.org</a></p>
 					</div>
 				</div>
 			</div>

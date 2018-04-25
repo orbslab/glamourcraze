@@ -5,6 +5,8 @@
 	if(!isset($_SESSION['cart'])) {
 		$_SESSION['cart'] = array();
 	}
+
+	date_default_timezone_set("Asia/Dhaka");
 ?>
 <!DOCTYPE html>
 <html lang="en">

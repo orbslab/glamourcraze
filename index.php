@@ -90,13 +90,13 @@
 			<div class="row new">
 				<?php
                     try {
-                        $new = $conn->prepare("SELECT * FROM product_list ORDER BY id DESC LIMIT 4"); 
+                        $new = $conn->prepare("SELECT * FROM product_list ORDER BY id DESC LIMIT 6"); 
                         $new->execute();
 
                         if($new->rowCount() > 0) {
                             while ($new_row = $new->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="column">
 						<div class="post-module">
 							<div class="thumbnail">
@@ -129,6 +129,55 @@
                     }
                 ?>
 			</div>
+		</div>
+
+		<!-- Most Rated -->
+		<div class="container-fluid">
+			<div class="modtitle">
+				<h3>Most Rated</h3>
+			</div>
+			<div class="row new">
+				<?php
+                    try {
+                        $most = $conn->prepare("SELECT * FROM product_list ORDER BY review DESC LIMIT 6"); 
+                        $most->execute();
+
+                        if($most->rowCount() > 0) {
+                            while ($most_row = $most->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+				<div class="col-md-2">
+					<div class="column">
+						<div class="post-module">
+							<div class="thumbnail">
+								<div class="date">
+									<a href="productdetails.php?num=<?php echo $most_row['id'];?>">
+										<div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+									</a>
+								</div>
+								<img src="controller/<?php echo $most_row['img'];?>" class="img-responsive" alt="product">
+							</div>
+							<div class="post-content">
+								<a href="productdetails.php?num=<?php echo $most_row['id'];?>">
+									<?php if($most_row['status'] != '' && $most_row['status'] != 'sold out') {?>
+										<div class="category">- <?php echo $most_row['status'];?>%</div>
+									<?php	} else if($most_row['status'] != '' && $most_row['status'] == 'sold out') {?>
+										<div class="category"><?php echo $most_row['status'];?></div>
+									<?php } ?>
+									<h2 class="sub_title text-center"><?php echo $most_row['name'];?></h2>
+									<div class="post-meta text-center"><span class="timestamp">TK : <?php echo $most_row['price'];?></span></div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php
+                            }
+                        }
+                    } catch(PDOException $e) {
+                        echo "Error: " . $e->getMessage();
+                    }
+                ?>
+			</div>
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="banners">
@@ -140,7 +189,7 @@
 
 		<!-- Best Deals -->
 		<div class="container-fluid modtitle">
-			<h3>Best Deals</h3>
+			<h3>Best Deals By Category</h3>
 		</div>
 
 		<?php

@@ -68,6 +68,7 @@
             while ($prod_row = $prod->fetch(PDO::FETCH_ASSOC)) {
 
                 $cata = $prod_row['category'];
+                $tt = $prod_row['review'];
 ?>
 
    <div class="row" style="padding: 20px; text-align: justify;">
@@ -284,7 +285,6 @@
     </div>
 
 <?php
-    date_default_timezone_set("Asia/Dhaka");
 
     if (isset($_POST['submit'])) {
 
@@ -294,10 +294,14 @@
 
       $up_date = date("Y-m-d");
 
-      try {
-          $give_rev = "INSERT INTO review (p_id, user_name, rating, comment, time) VALUES ('$num', '$name', '$rate', '$comment', '$up_date')";
-          $conn->exec($give_rev);
+      $tt += $rate;
 
+      $give_rev = "
+          UPDATE product_list SET review=$tt WHERE id=$num;
+          INSERT INTO review (p_id, user_name, rating, comment, time) VALUES ('$num', '$name', '$rate', '$comment', '$up_date')";
+
+      try {
+        $conn->exec($give_rev);
       } catch(PDOException $e) {
         echo $give_rev . "<br>" . $e->getMessage();
       }
