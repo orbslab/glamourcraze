@@ -87,7 +87,7 @@
 			<div class="modtitle">
 				<h3>New Arrivals</h3>
 			</div>
-			<div class="row new">
+			<div class="row best">
 				<?php
                     try {
                         $new = $conn->prepare("SELECT * FROM product_list ORDER BY id DESC LIMIT 6"); 
@@ -136,7 +136,7 @@
 			<div class="modtitle">
 				<h3>Most Rated</h3>
 			</div>
-			<div class="row new">
+			<div class="row best">
 				<?php
                     try {
                         $most = $conn->prepare("SELECT * FROM product_list ORDER BY review DESC LIMIT 6"); 
@@ -178,10 +178,14 @@
                     }
                 ?>
 			</div>
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="banners">
-						<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
+			<div class="banner-img">
+				<div class="row">
+					<div class="container-fluid">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="banners">
+								<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -263,13 +267,17 @@
                 echo "Error: " . $e->getMessage();
             }
         ?>
-        <div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="banners">
-						<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
+        <div class="banner-img">
+			<div class="row">
+				<div class="container-fluid">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="banners">
+							<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
+						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</section>
 <?php
 	include_once 'footer.php';
