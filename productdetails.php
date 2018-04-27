@@ -129,18 +129,18 @@
             <h4>You Might Also Like</h4>
         </center><br><br>
         <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
+            <div class="col-lg-1 col-md-1"></div>
+            <div class="col-lg-10 col-md-10 col-sm-10">
                 <div class="row best">
                     <?php
                         try {
-                            $rec = $conn->prepare("SELECT * FROM product_list WHERE category=? LIMIT 4"); 
+                            $rec = $conn->prepare("SELECT * FROM product_list WHERE category=? LIMIT 6"); 
                             $rec->execute([$cata]);
 
                             if($rec->rowCount() > 0) {
                                 while ($rec_row = $rec->fetch(PDO::FETCH_ASSOC)) {
                     ?>
-                    <div class="col-md-3">
+                    <div class="col-md-2 col-sm-6">
                         <div class="column">
                             <div class="post-module">
                                 <div class="thumbnail">
@@ -175,7 +175,7 @@
                     ?>
                 </div>
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-lg-1 col-md-1"></div>
         </div>
     </div>
 

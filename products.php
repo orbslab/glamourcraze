@@ -76,16 +76,13 @@
                 ?>
             </div>
 
-            <div class="pagination">
-                <a href="#"><<</a>
-                <a href="#">1</a>
-                <a href="#" class="active">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">>></a>
-            </div>
+            <ul class="pagination">
+                <li><a href="#">Previous</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
         </div>
         <div class="col-md-1">
     </div>

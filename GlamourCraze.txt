@@ -1,0 +1,23 @@
+Gmail
+Email: glamourcrazebd@gmail.com
+pass: GlamourCraze12
+
+webhostbd
+Email: glamourcrazebd@gmail.com
+pass: GlamourCraze12
+
+control panel (http://www.glamourcrazebd.com:2083)
+Username: glamourc
+Password: c1A48t9gDo
+
+Server Name: server 5
+Server IP: 50.28.38.250
+
+phpmyadmin (mysql database)
+server: localhost:3306
+database name: glamourc_data
+username: glamourc_user
+password: TkR9a.E^Or6(
+
+Nameserver 1: ns3.webhostbd.net (50.28.38.250)
+Nameserver 2: ns4.webhostbd.net (50.28.38.251)

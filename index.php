@@ -85,7 +85,7 @@
 		<!-- New Arrivel -->
 		<div class="container-fluid">
 			<div class="modtitle">
-				<h3>New Arrivals</h3>
+				<a href="#" class="text-decoration"><h4>New Arrivals</h4></a>
 			</div>
 			<div class="row best">
 				<?php
@@ -105,7 +105,7 @@
 										<div class="day"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
 									</a>
 								</div>
-								<img src="controller/<?php echo $new_row['img']; ?>" class="img-responsive" alt="product">
+								<img src="controller/<?php echo $new_row['img']; ?>" alt="product">
 							</div>
 							<div class="post-content">
 								<a href="productdetails.php?num=<?php echo $new_row['id'];?>">
@@ -134,7 +134,7 @@
 		<!-- Most Rated -->
 		<div class="container-fluid">
 			<div class="modtitle">
-				<h3>Most Rated</h3>
+				<a href="#" class="text-decoration"><h4>Most Rated</h4></a>
 			</div>
 			<div class="row best">
 				<?php
@@ -180,11 +180,9 @@
 			</div>
 			<div class="banner-img">
 				<div class="row">
-					<div class="container-fluid">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<div class="banners">
-								<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
-							</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="banners">
+							<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
 						</div>
 					</div>
 				</div>
@@ -193,7 +191,7 @@
 
 		<!-- Best Deals -->
 		<div class="container-fluid modtitle">
-			<h3>Best Deals By Category</h3>
+			<h3>Deals By Category</h3>
 		</div>
 
 		<?php
@@ -209,9 +207,6 @@
 			<div class="row">
 				<div class="modtitle-b col-md-6">
 					<a href="products.php?cat=<?php echo $cat_row['cat_name'];?>" class="text-decoration"><h4><?php echo $cat_row['cat_name'];?></h4></a>
-				</div>
-				<div class="col-md-6">
-					<a href="products.php?cat=<?php echo $cat_row['cat_name'];?>" class="text-decoration"><span class="mod-s"><h4>See All</h4></span><a>
 				</div>
 			</div>
 			<div class="row best">
@@ -269,11 +264,9 @@
         ?>
         <div class="banner-img">
 			<div class="row">
-				<div class="container-fluid">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="banners">
-							<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
-						</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="banners">
+						<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
 					</div>
 				</div>
 			</div>
