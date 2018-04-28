@@ -133,7 +133,7 @@
 							<h3 class="modtitle-f">Contact Info</h3>
 							<ul>
 								<li class="adres">
-									San Luis potosí, centro historico, 78000 san luis potosí, SPL, Mexico
+									56 Kastoghar, Sylhet, Bangladesh
 								</li>
 								<li class="phone">
 									(+880) 1742-924545

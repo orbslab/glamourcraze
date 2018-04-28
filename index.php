@@ -214,8 +214,8 @@
 					$cat_name = $cat_row['cat_name'];
 
 					try {
-			            $p_cat = $conn->prepare("SELECT * FROM product_list WHERE category='$cat_name' ORDER BY id DESC LIMIT 6"); 
-			            $p_cat->execute();
+			            $p_cat = $conn->prepare("SELECT * FROM product_list WHERE category=? ORDER BY id DESC LIMIT 6"); 
+			            $p_cat->execute([$cat_name]);
 
 			            if($p_cat->rowCount() > 0) {
 			                while ($p_cat_row = $p_cat->fetch(PDO::FETCH_ASSOC)) {

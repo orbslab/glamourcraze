@@ -24,11 +24,14 @@
 
     if($stmt->rowCount() > 0) {
       while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+        $img_path = $row['img'];
 ?>
- 			<form enctype="multipart/form-data" action="" method="post">
+ 			<form enctype="multipart/form-data" action="" method="post" runat="server">
         <div class="form-group col-md-12 view-img">
           <center>
-            <img id="zoom_01" src="<?php echo $row['img'];?>" alt="add" height="260px" width="237px" data-zoom-image="<?php echo $row['img'];?>"><br><br>
+            <img id="add-img" src="<?php echo $row['img'];?>" alt="add" height="260px" width="237px"><br><br>
+            <input class="btn btn-info" type="file" name="image" accept="image/*" onchange="readURL(this);"/>
           </center>
         </div>
 		    <div class="form-group">
@@ -86,13 +89,6 @@
         </div>
 			</form>
 
-      <script>
-          $('#zoom_01').elevateZoom({
-            easing : true,
-            scrollZoom : true
-          });
-      </script>
-
       <!-- Modal -->
       <div class="modal fade" id="delete" role="dialog">
         <div class="modal-dialog">
@@ -124,14 +120,21 @@
         $price = $_POST['price'];
         $cate = $_POST['category'];
 
+        if(empty($_FILES['image']['name'])) {
+          $img = $img_path;
+        } else {
+          $img = "product_pic/".time().$_FILES['image']['name'];
+           move_uploaded_file($_FILES['image']['tmp_name'],$img);
+        }
+
         $up_date = date("Y-m-d");
 
         try {
-            $sql = "UPDATE product_list SET name='$name', details='$details', status='$status', price='$price', category='$cate', up_date='$up_date' WHERE id='$id'";
+            $sql = "UPDATE product_list SET name='$name', details='$details', img='$img', status='$status', price='$price', category='$cate', up_date='$up_date' WHERE id='$id'";
             
             $stmt1 = $conn->prepare($sql);
             $stmt1->execute();
-
+            echo "<script>window.close();</script>";
         } catch(PDOException $e) {
           echo $sql . "<br>" . $e->getMessage();
         }

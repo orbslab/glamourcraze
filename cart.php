@@ -24,8 +24,8 @@
 				            $orders .= $value.",";
 
 				            try {
-		                        $cart = $conn->prepare("SELECT * FROM product_list WHERE id='$value'"); 
-		                        $cart->execute();
+		                        $cart = $conn->prepare("SELECT * FROM product_list WHERE id=?"); 
+		                        $cart->execute([$value]);
 
 		                        if($cart->rowCount() > 0) {
 		                            while ($cart_row = $cart->fetch(PDO::FETCH_ASSOC)) {
