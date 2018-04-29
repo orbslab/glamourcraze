@@ -96,7 +96,7 @@
 
 		
 	<!-- Footer Section Start -->
-	<footer class="footer-container footer">
+	<footer class="footer-container footer" id="contact">
 		<div class="footer-top">
 			<div class="container-fluid">
 				<div class="row">

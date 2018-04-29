@@ -112,7 +112,7 @@
             <a href="productdetails.php?num=<?php echo $num;?>&cart=<?php echo $prod_row['id'];?>"><button type="button" class="btn btn-primary btn-block">ADD TO CART</button></a>
         </div>
         <div class="col-md-2"></div>
-    </div><br>
+    </div></br>
 
     <?php
                 }
@@ -127,7 +127,7 @@
     <div class="cart-rec">
         <center>
             <h4>You Might Also Like</h4>
-        </center><br><br>
+        </center></div>br></br>
         <div class="row">
             <div class="col-lg-1 col-md-1"></div>
             <div class="col-lg-10 col-md-10 col-sm-10">
@@ -296,8 +296,7 @@
 
       $tt += $rate;
 
-      $give_rev = "
-          UPDATE product_list SET review=$tt WHERE id=$num;
+      $give_rev = "UPDATE product_list SET review=$tt WHERE id=$num;
           INSERT INTO review (p_id, user_name, rating, comment, time) VALUES ('$num', '$name', '$rate', '$comment', '$up_date')";
 
       try {
@@ -306,8 +305,6 @@
         echo $give_rev . "<br>" . $e->getMessage();
       }
     }
-
-    $conn = null;
 
     include_once 'footer.php';
 ?>

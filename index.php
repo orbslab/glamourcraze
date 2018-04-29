@@ -85,7 +85,7 @@
 		<!-- New Arrivel -->
 		<div class="container-fluid">
 			<div class="modtitle">
-				<a href="#" class="text-decoration"><h4>New Arrivals</h4></a>
+				<a href="products.php?cat=All Category&filter=New Arrivals"><h4>New Arrivals</h4></a>
 			</div>
 			<div class="row best">
 				<?php
@@ -134,7 +134,7 @@
 		<!-- Most Rated -->
 		<div class="container-fluid">
 			<div class="modtitle">
-				<a href="#" class="text-decoration"><h4>Most Rated</h4></a>
+				<a href="products.php?cat=All Category&filter=Most Rated"><h4>Most Rated</h4></a>
 			</div>
 			<div class="row best">
 				<?php

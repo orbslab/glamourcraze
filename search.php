@@ -37,9 +37,9 @@
                         </p>
                         <a href="productdetails.php?num=<?php echo $row1['id'];?>">View Details</a>
                     </div>
-                    <div class="col-md-2 details1">
+                    <div class="col-md-2 details1 an">
                         <p><?php echo $row1['price']; ?> Taka</p>
-                        <button type="button" class="btn btn-warning">ADD TO CART</button>
+                        <a href="productdetails.php?num=<?php echo $row1['id'];?>"><button type="button" class="btn btn-primary btn-block">ADD TO CART</button></a>
                     </div>
                 </div>
             </div>
@@ -57,16 +57,13 @@
             $sql = null;
         ?>
 
-        <!-- <div class="pagination">
-            <a href="#"><<</a>
-            <a href="#">1</a>
-            <a href="#" class="active">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">>></a>
-        </div> -->
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
     </div>
 
 <?php 

@@ -139,7 +139,7 @@
 							<a href="#" class="nav-link">Services</a>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link">Contact us</a>
+							<a href="#contact" class="nav-link" >Contact us</a>
 						</li>
 					</ul>
 				</div>

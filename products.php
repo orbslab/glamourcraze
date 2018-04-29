@@ -9,7 +9,7 @@
             <div class="cat">
                 <ul>
                     <p><b>Category</b></p>
-                    <li><a href="products.php?cat=All">All</a></li>
+                    <li><a href="products.php?cat=All Category">All Category</a></li>
                     <?php
                         try {
                             $op2 = $conn->prepare("SELECT * FROM category");
@@ -25,16 +25,75 @@
                           echo "Error: ".$e->getMessage();
                         }
                     ?>
+                </ul><hr>
+
+                <ul>
+                    <p><b>Filter</b></p>
+                    <li>
+                        <div class="form-check">
+                          <label class="form-check-label" onclick="window.location.href='products.php?cat=<?php echo $pbc;?>&filter=New Arrivals'">
+                            <input type="checkbox" class="form-check-input" value="">New Arrival
+                          </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                          <label class="form-check-label" onclick="window.location.href='products.php?cat=<?php echo $pbc;?>&filter=Most Rated'">
+                            <input type="checkbox" class="form-check-input" value="">Most Rated
+                          </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                          <label class="form-check-label" onclick="window.location.href='products.php?cat=<?php echo $pbc;?>&filter=High To Low Price'">
+                            <input type="checkbox" class="form-check-input" value="">High To Low Price
+                          </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                          <label class="form-check-label" onclick="window.location.href='products.php?cat=<?php echo $pbc;?>&filter=Low To High Price'">
+                            <input type="checkbox" class="form-check-input" value="">Low To High Price
+                          </label>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="col-md-9">
+            <p class="tag"><a href="#"> <?php echo $pbc;?> ></a><a href="#"> <?php echo $_GET['filter'];?></a></p>
             <div class="row best">
                 <?php
-                    if($pbc == 'All') {
-                        $csql = "SELECT * FROM product_list";
+                    if($pbc == 'All Category') {
+                        if($_GET['filter'] == 'New Arrivals') {
+                            $csql = "SELECT * FROM product_list ORDER BY id DESC";
+                        }
+                        else if($_GET['filter'] == 'Most Rated') {
+                            $csql = "SELECT * FROM product_list ORDER BY review ASC";
+                        }
+                        else if($_GET['filter'] == 'High To Low Price') {
+                            $csql = "SELECT * FROM product_list ORDER BY price DESC";
+                        }
+                        else if($_GET['filter'] == 'Low To High Price') {
+                            $csql = "SELECT * FROM product_list ORDER BY price ASC";
+                        } else {
+                            $csql = "SELECT * FROM product_list";
+                        }
                     } else {
-                        $csql = "SELECT * FROM product_list WHERE category=?";
+                        if($_GET['filter'] == 'New Arrivals') {
+                            $csql = "SELECT * FROM product_list WHERE category=? ORDER BY id DESC";
+                        }
+                        else if($_GET['filter'] == 'Most Rated') {
+                            $csql = "SELECT * FROM product_list WHERE category=? ORDER BY review ASC";
+                        }
+                        else if($_GET['filter'] == 'High To Low Price') {
+                            $csql = "SELECT * FROM product_list WHERE category=? ORDER BY price DESC";
+                        }
+                        else if($_GET['filter'] == 'Low To High Price') {
+                            $csql = "SELECT * FROM product_list WHERE category=? ORDER BY price ASC";
+                        } else {
+                            $csql = "SELECT * FROM product_list WHERE category=?";
+                        }
                     }
 
                     try {
@@ -77,11 +136,11 @@
             </div>
 
             <ul class="pagination">
-                <li><a href="#">Previous</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">Next</a></li>
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
         </div>
         <div class="col-md-1">
