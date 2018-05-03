@@ -5,10 +5,77 @@
   .modtitle{
     margin-top: 0 !important;
   }
+  .cat {
+    display: none !important;
+  }
+
+  /*=================
+    On Mobile Screen Filter Section
+  =====================================================*/
+  .filter{}
+
+  .filter, .filter ul li {
+    display: block;
+    list-style-type: none;
+  }
+  .footer-top{
+    display: none !important;
+  }
+  .filter ul li {
+      list-style-type: none;
+  }
+
+  .filter a {
+      color: #000;
+      text-decoration: none;
+  }
+
+  .filter a:hover {
+      color: deeppink;
+      text-decoration: none;
+  }
+
+  .filter .active {
+      color: deeppink;
+      text-decoration: underline;
+      list-style-type: circle;
+  }
+  .footer-main {
+    padding: 0 0;
+  }
+  .tag {
+    margin-left: 1rem !important;
+  }
+  .pro-best{
+    padding: 0 10px !important;
+  }
+  .pagination{
+    margin-left: 1rem !important;
+  }
+  #so-groups{
+    display: none;
+  }
+  .modtitle{
+    margin-top: 20px !important;
+  }
+  .admin-lg-nav{
+    display: none;
+  }
+  .admin-sm-nav{
+    right: 0;
+    left: 0;
+    margin: 0;
+  }
+
 }
 
-@media (max-width: 767px){
-  .footer-top{}
+@media (min-width: 768px){
+  .filter {
+    display: none !important;
+  }
+  .admin-sm-nav{
+    display: none !important;
+  }
 }
 /*=====================
   Navbar (All)
@@ -125,7 +192,7 @@
   }
 }
 
-@media only screen and (min-width: 280px) and (max-width: 510px){
+@media only screen and (min-width: 381px) and (max-width: 510px){
   .block-policy2 {}
 
   .block-policy2 ul li {
@@ -151,6 +218,29 @@
   }
   .banners {
      margin: 0 0;
+  }
+}
+@media only screen and (min-width: 280px) and (max-width: 380px){
+  .block-policy2 {}
+
+  .block-policy2 ul li {
+      padding: 0 15px;
+      width: 20%;
+  }
+  .block-policy2 ul li:before {
+      height: 40px;
+      margin: 0 12.5px 0 0;
+  }
+  .block-policy2 ul li .item-inner .icon {
+      margin-left: -25px; 
+  }
+  .block-policy2 ul li .item-inner .content {
+      margin-left: -20px;
+      margin-top: 3px; 
+      font-size: 10px;
+  }
+    .block-policy2 ul li .item-inner .icon.icon1 {
+      background-position: -29px -23px; 
   }
 }
 @media only screen and (min-width: 280px) and (max-width: 440px){

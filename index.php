@@ -190,10 +190,11 @@
 		</div>
 
 		<!-- Best Deals -->
-		<div class="container-fluid modtitle">
-			<h3>Deals By Category</h3>
+		<div class="container-fluid">
+			<div class="modtitle">
+				<h4>Deals By Category</h4>
+			</div>
 		</div>
-
 		<?php
 			try {
 	            $cat = $conn->prepare("SELECT cat_name FROM category"); 
@@ -262,15 +263,17 @@
                 echo "Error: " . $e->getMessage();
             }
         ?>
-        <div class="banner-img">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="banners">
-						<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
+        <div class="container-fluid">
+        	<div class="banner-img">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="banners">
+							<a href="#"><img src="images/banner.jpg" alt="image" class="img-responsive"></a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+        </div>
 	</section>
 <?php
 	include_once 'footer.php';

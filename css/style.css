@@ -19,6 +19,9 @@ html{
 .m-top-10{
     margin-top: 10px;
 }
+.m-l-5{
+  margin-left: -5% !important;
+}
 .p-l-50{}
 .p-t-30{
     padding-top: 30px;
@@ -123,6 +126,9 @@ html{
 .banner-img [class^="col-"] {
     width: 100% !important;
     margin: 0 0 0 0 !important;
+  }
+  .filter [class^="col-"]{
+    width: 50%;
   }
 }
 

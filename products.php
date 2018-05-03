@@ -4,6 +4,62 @@
     $pbc = $_GET['cat'];
 ?>
 
+    <div class="filter row m-top-10">
+        <div class="col-sm-6">
+            <ul>
+                <p><b>Category</b></p>
+                <li><a href="products.php?cat=All Category">All Category</a></li>
+                <?php
+                    try {
+                        $op2 = $conn->prepare("SELECT * FROM category");
+                        $op2->execute();
+                        while ($op2_row = $op2->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                    <li class="dropdown-item">
+                        <li><a href="products.php?cat=<?php echo $op2_row['cat_name'];?>"><?php echo $op2_row['cat_name'];?></a></li>
+                    </li>
+                <?php
+                        }
+                    } catch(PDOException $e) {
+                      echo "Error: ".$e->getMessage();
+                    }
+                ?>
+            </ul>
+        </div>
+        <div class="col-sm-6 m-l-5">
+            <ul>
+                <p><b>Filter</b></p>
+                <li>
+                    <div class="form-check">
+                      <label class="form-check-label" onclick="window.location.href='products.php?cat=<?php echo $pbc;?>&filter=New Arrivals'">
+                        <input type="checkbox" class="form-check-input" value="">New Arrival
+                      </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                      <label class="form-check-label" onclick="window.location.href='products.php?cat=<?php echo $pbc;?>&filter=Most Rated'">
+                        <input type="checkbox" class="form-check-input" value="">Most Rated
+                      </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                      <label class="form-check-label" onclick="window.location.href='products.php?cat=<?php echo $pbc;?>&filter=High To Low Price'">
+                        <input type="checkbox" class="form-check-input" value="">High To Low Price
+                      </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                      <label class="form-check-label" onclick="window.location.href='products.php?cat=<?php echo $pbc;?>&filter=Low To High Price'">
+                        <input type="checkbox" class="form-check-input" value="">Low To High Price
+                      </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="row" style="margin-top: 50px;">
         <div class="col-md-2" style="border-right: 1px solid grey;">
             <div class="cat">
@@ -62,7 +118,7 @@
         </div>
         <div class="col-md-9">
             <p class="tag"><a href="#"> <?php echo $pbc;?> ></a><a href="#"> <?php echo $_GET['filter'];?></a></p>
-            <div class="row best">
+            <div class="row best pro-best">
                 <?php
                     if($pbc == 'All Category') {
                         if($_GET['filter'] == 'New Arrivals') {

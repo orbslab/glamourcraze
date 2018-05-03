@@ -2,12 +2,12 @@
     margin-top: 80px;
 }
 
-.navbar {
+.admin-top-nav.navbar {
     background-color: rgb(255, 179, 193);
     padding: 10px;
 }
 
-.navbar-brand {
+.admin-top-nav.navbar-brand {
     color: #000000;
 }
 
